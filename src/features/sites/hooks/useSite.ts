@@ -1,9 +1,7 @@
-import { getSiteById } from '../services/api';
-import { useQuery } from '../../../shared/hooks/useQuery';
-import { useMemo } from 'react';
+import sitesData from '../../../data/sites.json';
+import type { Site } from '../types';
 
 export const useSite = (id: number) => {
-  const queryFn = useMemo(() => () => getSiteById(id), [id]);
-  const { data: site, loading, error } = useQuery(queryFn, [id]);
-  return { site, loading, error };
+  const site = (sitesData as Site[]).find((s) => s.id === id);
+  return { site, loading: false, error: null };
 };

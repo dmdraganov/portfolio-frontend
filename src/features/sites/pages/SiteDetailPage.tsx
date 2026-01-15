@@ -5,15 +5,7 @@ import { useSite } from '../hooks/useSite';
 
 const SiteDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { site, loading, error } = useSite(Number(id));
-
-  if (loading) {
-    return <div>Загрузка...</div>;
-  }
-
-  if (error) {
-    return <div>Ошибка: {error.message}</div>;
-  }
+  const { site } = useSite(Number(id));
 
   if (!site) {
     return <NotFoundPage />;

@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import HomePage from '../features/home/HomePage';
-import WorksListPage from '../features/works/pages/WorksListPage';
-import WorkDetailPage from '../features/works/pages/WorkDetailPage';
+import PracticeWorksPage from '../features/works/pages/PracticeWorksPage';
+import LabWorksPage from '../features/works/pages/LabWorksPage';
+import PracticePagesPage from '../features/works/pages/EducationalWorksPage';
 import SitesListPage from '../features/sites/pages/SitesListPage';
 import SiteDetailPage from '../features/sites/pages/SiteDetailPage';
 import NotFoundPage from '../features/NotFoundPage/NotFoundPage';
@@ -18,12 +19,16 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: 'works',
-        element: <WorksListPage />,
+        path: '/practices',
+        element: <PracticeWorksPage />,
       },
       {
-        path: 'works/:id',
-        element: <WorkDetailPage />,
+        path: '/labs',
+        element: <LabWorksPage />,
+      },
+      {
+        path: '/practice-pages',
+        element: <PracticePagesPage />,
       },
       {
         path: 'sites',

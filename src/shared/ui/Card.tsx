@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 interface CardProps {
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   linkTo: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, children, linkTo }) => {
+const Card: React.FC<CardProps> = ({ title, linkTo, children }) => {
   return (
     <div className='bg-card rounded-lg p-4 flex flex-col transition-transform transform hover:scale-105'>
       <div className='flex-grow'>

@@ -3,15 +3,7 @@ import Card from '../../../shared/ui/Card';
 import { useSites } from '../hooks/useSites';
 
 const SitesListPage: React.FC = () => {
-  const { sites: sitesData, loading, error } = useSites();
-
-  if (loading) {
-    return <div>Загрузка...</div>;
-  }
-
-  if (error) {
-    return <div>Ошибка: {error.message}</div>;
-  }
+  const { sites: sitesData } = useSites();
 
   return (
     <div>

@@ -1,11 +1,8 @@
 export type Work = {
   id: number;
-  title: string;
   workNumber: number;
-  author: string;
-  type: 'practice' | 'lab' | 'educational';
-  description: string;
+  type: 'practice' | 'lab';
   images: string[];
-  codeUrl?: string | null;
   reportUrl?: string | null;
+  pageUrl?: string | null;
 };

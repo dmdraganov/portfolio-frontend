@@ -7,16 +7,29 @@ const MainLayout: React.FC = () => {
       <header className='bg-card'>
         <nav className='container p-4 mx-auto flex justify-between items-center'>
           <Link to='/' className='text-xl font-bold'>
-            Портфолио
+            Архимаги
           </Link>
           <div>
-            <Link to='/' className='mr-4'>
-              Главная
+            <Link to='/practices' className='mr-4'>
+              Практические
             </Link>
-            <Link to='/works' className='mr-4'>
-              Работы
+            <Link to='/labs' className='mr-4'>
+              Лабораторные
             </Link>
-            <Link to='/sites'>Сайты</Link>
+            <Link to='/practice-pages' className='mr-4'>
+              Практические страницы
+            </Link>
+            <Link to='/sites' className='mr-4'>
+              Сайты
+            </Link>
+            <a
+              href='/referat.docx'
+              className='mr-4'
+              target='_blank'
+              rel='noreferrer'
+            >
+              Реферат
+            </a>
           </div>
         </nav>
       </header>

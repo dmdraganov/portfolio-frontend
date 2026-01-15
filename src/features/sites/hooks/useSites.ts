@@ -1,7 +1,6 @@
-import { getSites } from '../services/api';
-import { useQuery } from '../../../shared/hooks/useQuery';
+import sitesData from '../../../data/sites.json';
+import type { Site } from '../types';
 
 export const useSites = () => {
-  const { data: sites, loading, error } = useQuery(getSites);
-  return { sites: sites || [], loading, error };
+  return { sites: sitesData as Site[], loading: false, error: null };
 };
