@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Portfolio Website",
+    "repositoryUrl": "https://github.com/user/portfolio",
+    "figmaUrl": "https://www.figma.com/file/...",
+    "pages": [
+      {
+        "name": "Home Page",
+        "url": "/portfolio/index.html",
+        "references": [
+          "/images/portfolio/home-ref1.png",
+          "/images/portfolio/home-ref2.png"
+        ]
+      },
+      {
+        "name": "About Page",
+        "url": "/portfolio/about.html",
+        "references": ["/images/portfolio/about-ref1.png"]
+      }
+    ]
+  }
+]

@@ -1,22 +1,20 @@
 import { useState, useEffect } from 'react';
-import { Work, WorksData } from '@/shared/types';
+import { PracticalPage, WorksData } from '@/shared/types';
 
-export const useWorks = () => {
-  const [practices, setPractices] = useState<Work[]>([]);
-  const [labs, setLabs] = useState<Work[]>([]);
+export const usePracticalPages = () => {
+  const [practicalPages, setPracticalPages] = useState<PracticalPage[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    const fetchWorks = async () => {
+    const fetchPages = async () => {
       try {
         const response = await fetch('/data/works.json');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data: WorksData = await response.json();
-        setPractices(data.works.filter((w) => w.type === 'practice'));
-        setLabs(data.works.filter((w) => w.type === 'lab'));
+        setPracticalPages(data.practicalPages);
       } catch (e) {
         setError(e as Error);
       } finally {
@@ -24,8 +22,8 @@ export const useWorks = () => {
       }
     };
 
-    fetchWorks();
+    fetchPages();
   }, []);
 
-  return { practices, labs, loading, error };
+  return { practicalPages, loading, error };
 };

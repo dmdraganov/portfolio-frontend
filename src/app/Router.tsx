@@ -1,12 +1,17 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
-import HomePage from '../features/home/HomePage';
-import PracticeWorksPage from '../features/works/pages/PracticeWorksPage';
-import LabWorksPage from '../features/works/pages/LabWorksPage';
-import PracticePagesPage from '../features/works/pages/EducationalWorksPage';
-import SitesListPage from '../features/sites/pages/SitesListPage';
-import SiteDetailPage from '../features/sites/pages/SiteDetailPage';
 import NotFoundPage from '../features/NotFoundPage/NotFoundPage';
+import { PracticesPage } from '@/features/works/pages/PracticesPage';
+import { LabsPage } from '@/features/works/pages/LabsPage';
+import { PracticalPagesPage } from '@/features/practical-pages/pages/PracticalPagesPage';
+import { SitesPage } from '@/features/sites/pages/SitesPage';
+import { SiteDetailPage } from '@/features/sites/pages/SiteDetailPage';
+import { CourseworksPage } from '@/features/courseworks/pages/CourseworksPage';
+import { EssaysPage } from '@/features/essays/pages/EssaysPage';
 
 const router = createBrowserRouter([
   {
@@ -16,27 +21,35 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: <Navigate to='/practices' replace />,
       },
       {
         path: '/practices',
-        element: <PracticeWorksPage />,
+        element: <PracticesPage />,
       },
       {
         path: '/labs',
-        element: <LabWorksPage />,
+        element: <LabsPage />,
       },
       {
-        path: '/practice-pages',
-        element: <PracticePagesPage />,
+        path: '/practical-pages',
+        element: <PracticalPagesPage />,
       },
       {
         path: 'sites',
-        element: <SitesListPage />,
+        element: <SitesPage />,
       },
       {
-        path: 'sites/:id',
+        path: 'sites/:name',
         element: <SiteDetailPage />,
+      },
+      {
+        path: '/courseworks',
+        element: <CourseworksPage />,
+      },
+      {
+        path: '/essays',
+        element: <EssaysPage />,
       },
     ],
   },
