@@ -1,31 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useMemo } from 'react';
+import { useData } from '@/shared/hooks/useData';
 import { Work, WorksData } from '@/shared/types';
 
 export const useWorks = () => {
-  const [practices, setPractices] = useState<Work[]>([]);
-  const [labs, setLabs] = useState<Work[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
+  const {
+    data: works,
+    loading,
+    error,
+  } = useData<Work, WorksData>('/data/works.json', (data) => data.works);
 
-  useEffect(() => {
-    const fetchWorks = async () => {
-      try {
-        const response = await fetch('/data/works.json');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data: WorksData = await response.json();
-        setPractices(data.works.filter((w) => w.type === 'practice'));
-        setLabs(data.works.filter((w) => w.type === 'lab'));
-      } catch (e) {
-        setError(e as Error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchWorks();
-  }, []);
+  const practices = useMemo(
+    () => (works ? works.filter((w) => w.type === 'practice') : []),
+    [works]
+  );
+  const labs = useMemo(
+    () => (works ? works.filter((w) => w.type === 'lab') : []),
+    [works]
+  );
 
   return { practices, labs, loading, error };
 };

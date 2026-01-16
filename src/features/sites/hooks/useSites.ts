@@ -1,61 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useDataItem } from '@/shared/hooks/useDataItem';
+import { useData } from '@/shared/hooks/useData';
 import { Site } from '@/shared/types';
 
 export const useSites = () => {
-  const [sites, setSites] = useState<Site[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
-
-  useEffect(() => {
-    const fetchSites = async () => {
-      try {
-        const response = await fetch('/data/sites.json');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data: Site[] = await response.json();
-        setSites(data);
-      } catch (e) {
-        setError(e as Error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchSites();
-  }, []);
-
+  const { data: sites, loading, error } = useData<Site>('/data/sites.json');
   return { sites, loading, error };
 };
 
 export const useSite = (name: string) => {
-  const [site, setSite] = useState<Site | undefined>(undefined);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
-
-  useEffect(() => {
-    if (!name) {
-      setLoading(false);
-      return;
-    }
-    const fetchSite = async () => {
-      try {
-        const response = await fetch('/data/sites.json');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data: Site[] = await response.json();
-        const foundSite = data.find((s) => s.name === name);
-        setSite(foundSite);
-      } catch (e) {
-        setError(e as Error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchSite();
-  }, [name]);
-
+  const {
+    data: site,
+    loading,
+    error,
+  } = useDataItem<Site>('/data/sites.json', (s) => s.name === name);
   return { site, loading, error };
 };
