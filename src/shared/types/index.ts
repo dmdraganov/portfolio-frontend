@@ -3,7 +3,6 @@
 // 7.1 Работы (практические и лабораторные)
 export type Work = {
   number: number;
-  type: 'practice' | 'lab';
   reportUrl: string;
 };
 
@@ -16,10 +15,6 @@ export type PracticalPage = {
   }[];
 };
 
-export type WorksData = {
-  works: Work[];
-  practicalPages: PracticalPage[];
-};
 
 // 7.3 Сайты
 export type SitePage = {

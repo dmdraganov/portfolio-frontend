@@ -1,0 +1,9 @@
+[
+  {
+    "labNumber": 1,
+    "pages": [
+      { "name": "Page 1 for Lab 1", "url": "/pages/lab1/page1.html" },
+      { "name": "Page 2 for Lab 1", "url": "/pages/lab1/page2.html" }
+    ]
+  }
+]

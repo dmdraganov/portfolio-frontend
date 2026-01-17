@@ -1,27 +1,20 @@
-import { useCallback, useMemo } from 'react';
 import { useData } from '@/shared/hooks/useData';
-import { Work, WorksData } from '@/shared/types';
+import { Work } from '@/shared/types';
 
 export const useWorks = () => {
-  const transform = useCallback((data: WorksData) => data.works, []);
-
   const {
-    data: works = [],
-    loading,
-    error,
-  } = useData<Work[], WorksData>('/data/works.json', transform);
+    data: practices,
+    loading: practicesLoading,
+    error: practicesError,
+  } = useData<Work[]>('/data/practices.json');
+  const {
+    data: labs,
+    loading: labsLoading,
+    error: labsError,
+  } = useData<Work[]>('/data/labs.json');
 
-  const { practices, labs } = useMemo(() => {
-    const practices: Work[] = [];
-    const labs: Work[] = [];
+  const loading = practicesLoading || labsLoading;
+  const error = practicesError || labsError;
 
-    for (const work of works) {
-      if (work.type === 'practice') practices.push(work);
-      else if (work.type === 'lab') labs.push(work);
-    }
-
-    return { practices, labs };
-  }, [works]);
-
-  return { practices, labs, loading, error };
+  return { practices: practices || [], labs: labs || [], loading, error };
 };
