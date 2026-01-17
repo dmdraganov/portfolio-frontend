@@ -1,4 +1,3 @@
-// src/app/layouts/Sidebar.tsx
 import { NavLink } from 'react-router-dom';
 
 const links = [

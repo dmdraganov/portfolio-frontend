@@ -6,6 +6,6 @@ export const useCourseworks = () => {
     data: courseworks,
     loading,
     error,
-  } = useData<Coursework>('/data/courseworks.json');
-  return { courseworks, loading, error };
+  } = useData<Coursework[]>('/data/courseworks.json');
+  return { courseworks: courseworks || [], loading, error };
 };

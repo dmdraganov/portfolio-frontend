@@ -15,9 +15,9 @@ export const StateRenderer = <T,>({
   error,
   data,
   children,
-  loadingMessage = 'Loading...',
-  errorMessage = 'Error loading data',
-  notFoundMessage = 'Data not found',
+  loadingMessage = 'Загрузка...',
+  errorMessage = 'Ошибка при загрузке данных',
+  notFoundMessage = 'Данные не найдены',
 }: StateRendererProps<T>) => {
   if (loading) {
     return <p>{loadingMessage}</p>;

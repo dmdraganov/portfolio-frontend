@@ -88,7 +88,7 @@ API, серверная логика, авторизация и SEO **не пл�
 {
   "number": number,
   "type": "practice" | "lab",
-  "reportUrls": string[]
+  "reportUrl": string
 }
 ```
 

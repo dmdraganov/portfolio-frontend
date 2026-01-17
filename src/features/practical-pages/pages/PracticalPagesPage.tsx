@@ -4,7 +4,6 @@ import { StateRenderer } from '@/shared/ui/StateRenderer';
 
 export const PracticalPagesPage = () => {
   const { practicalPages, loading, error } = usePracticalPages();
-
   return (
     <StateRenderer
       loading={loading}

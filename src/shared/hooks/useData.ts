@@ -1,25 +1,28 @@
 import { useState, useEffect } from 'react';
 
-export const useData = <T, U = T[]>(
+export const useData = <TResult, TJson = unknown>(
   url: string,
-  selector?: (data: U) => T[]
+  transform?: (json: TJson) => TResult
 ) => {
-  const [data, setData] = useState<T[]>([]);
+  const [data, setData] = useState<TResult | undefined>(undefined);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
+      setError(null);
       try {
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        const jsonData: U = await response.json();
-        const selectedData = selector
-          ? selector(jsonData)
-          : (jsonData as unknown as T[]);
-        setData(selectedData);
+        const jsonData: TJson = await response.json();
+
+        const result = transform
+          ? transform(jsonData)
+          : (jsonData as unknown as TResult);
+        setData(result);
       } catch (e) {
         setError(e as Error);
       } finally {
@@ -28,7 +31,7 @@ export const useData = <T, U = T[]>(
     };
 
     fetchData();
-  }, [url, selector]);
+  }, [url, transform]);
 
   return { data, loading, error };
 };

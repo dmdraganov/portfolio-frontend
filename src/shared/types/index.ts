@@ -4,7 +4,7 @@
 export type Work = {
   number: number;
   type: 'practice' | 'lab';
-  reportUrls: string[];
+  reportUrl: string;
 };
 
 // 7.2 Практические страницы

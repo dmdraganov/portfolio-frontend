@@ -1,4 +1,3 @@
-// src/features/courseworks/pages/CourseworksPage.tsx
 import { useCourseworks } from '../hooks/useCourseworks';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
 
