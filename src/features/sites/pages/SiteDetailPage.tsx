@@ -1,5 +1,5 @@
 // src/features/sites/pages/SiteDetailPage.tsx
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useSite } from '../hooks/useSites';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
 
@@ -16,6 +16,12 @@ export const SiteDetailPage = () => {
     >
       {site && (
         <section>
+          <Link
+            to='/sites'
+            className='mb-4 inline-block text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded'
+          >
+            &larr; Назад к сайтам
+          </Link>
           <h1 className='text-3xl font-bold mb-4'>{site.name}</h1>
           <p>
             <a
