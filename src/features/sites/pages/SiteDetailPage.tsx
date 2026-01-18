@@ -18,9 +18,23 @@ export const SiteDetailPage = () => {
         <section>
           <Link
             to='/sites'
-            className='mb-4 inline-block text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded'
+            className='mb-4 inline-block text-gray-400 hover:text-white'
+            title='Назад к сайтам'
           >
-            &larr; Назад к сайтам
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              className='h-8 w-8'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M15 19l-7-7 7-7'
+              />
+            </svg>
           </Link>
           <h1 className='text-3xl font-bold mb-4'>{site.name}</h1>
           <p>
@@ -42,10 +56,8 @@ export const SiteDetailPage = () => {
           <table className='w-full text-left border-collapse'>
             <thead>
               <tr>
-                <th className='border-b p-4'>Cтраницы сайта (ссылки)</th>
-                <th className='border-b p-4'>
-                  Референсы (фотографии страниц/элементов других сайтов)
-                </th>
+                <th className='border-b p-4'>Cтраницы сайта</th>
+                <th className='border-b p-4'>Референсы</th>
               </tr>
             </thead>
             <tbody>

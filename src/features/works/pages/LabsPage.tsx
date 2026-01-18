@@ -1,9 +1,9 @@
 // src/features/works/pages/LabsPage.tsx
-import { useWorks } from '../hooks/useWorks';
+import { useLabs } from '../hooks/useLabs';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
 
 export const LabsPage = () => {
-  const { labs, loading, error } = useWorks();
+  const { labs, loading, error } = useLabs();
 
   return (
     <StateRenderer

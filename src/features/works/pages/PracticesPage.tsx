@@ -1,9 +1,9 @@
 // src/features/works/pages/PracticesPage.tsx
-import { useWorks } from '../hooks/useWorks';
+import { usePractices } from '../hooks/usePractices';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
 
 export const PracticesPage = () => {
-  const { practices, loading, error } = useWorks();
+  const { practices, loading, error } = usePractices();
 
   return (
     <StateRenderer
