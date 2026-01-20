@@ -8,7 +8,7 @@
 ## Data flow
 JSON → fetch → feature hook → UI component
 
-## Project structure
+## Current project structure
 
 public/
   data/
@@ -34,3 +34,51 @@ src/
     ui/
     hooks/
     types/
+
+## Architecture project structure
+
+public/
+  data/
+
+src/
+  app/
+    router/
+    layouts/
+    context/
+    services/
+  features/
+    works/
+      components/
+      hooks/
+      utils/
+      types/
+    practical-pages/
+      components/
+      hooks/
+      utils/
+      types/
+    sites/
+      components/
+      hooks/
+      utils/
+      types/
+    courseworks/
+      components/
+      hooks/
+      utils/
+      types/
+    essays/
+      components/
+      hooks/
+      utils/
+      types/
+  shared/
+    ui/
+    hooks/
+    types/
+    utils/
+  assets/
+    fonts/
+    images/
+    icons/
+  constants/

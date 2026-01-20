@@ -21,24 +21,25 @@ export const Sidebar = ({ isOpen, toggle }: SidebarProps) => {
 
   return (
     <aside
-      className={`bg-card text-foreground h-screen fixed top-0 left-0 flex flex-col p-2 transition-all duration-300 ${
-        isOpen ? 'w-64' : 'w-16'
-      }`}
+      className={`bg-background-secondary text-foreground h-screen 
+        fixed top-0 left-0 flex flex-col p-2 transition-all duration-300
+        border-r border-foreground/25 ${isOpen ? 'w-64' : 'w-16'}`}
     >
       <div>
         <div
-          className={`flex items-center h-16 px-4 ${
-            isOpen ? 'justify-between' : 'justify-center'
-          }`}
+          className={`flex items-center h-16 px-4
+            ${isOpen ? 'justify-between' : 'justify-center'}`}
         >
-          <h1 className={`text-xl font-bold text-nowrap ${!isOpen && 'hidden'}`}>
+          <h1
+            className={`text-xl font-bold text-nowrap ${!isOpen && 'hidden'}`}
+          >
             <StateRenderer data={config} error={error} loading={loading}>
               {config?.label}
             </StateRenderer>
           </h1>
           <button
             onClick={toggle}
-            className='p-2 bg-gray-700 rounded-full hover:bg-gray-600'
+            className='p-2 bg-background-secondary rounded-full hover:bg-background'
           >
             {isOpen ? '<' : '>'}
           </button>
@@ -49,8 +50,8 @@ export const Sidebar = ({ isOpen, toggle }: SidebarProps) => {
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `flex items-center p-2 rounded-md hover:bg-gray-700 ${
-                  isActive ? 'bg-gray-700' : ''
+                `flex items-center p-2 rounded-md hover:bg-secondary ${
+                  isActive ? 'bg-primary' : ''
                 }`
               }
             >

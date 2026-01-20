@@ -18,7 +18,7 @@ export const SiteDetailPage = () => {
         <section className='container mx-auto'>
           <Link
             to='/sites'
-            className='mb-4 inline-block text-gray-400 hover:text-white'
+            className='mb-4 inline-block text-primary hover:text-accent'
             title='Назад к сайтам'
           >
             <svg
@@ -75,11 +75,11 @@ export const SiteDetailPage = () => {
                   </td>
                   <td className='border-b p-4'>
                     <div className='flex flex-wrap gap-4'>
-                      {page.references.map((ref, index) => (
+                      {page.references.map((ref) => (
                         <img
-                          key={index}
+                          key={ref}
                           src={ref}
-                          alt={`Референс ${index + 1} для ${page.name}`}
+                          alt={`Референс для ${page.name}`}
                           className='w-48 h-auto object-cover rounded-md'
                         />
                       ))}
