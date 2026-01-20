@@ -2,7 +2,7 @@
 import { usePractices } from '../hooks/usePractices';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
 
-export const PracticesPage = () => {
+const PracticesPage = () => {
   const { practices, loading, error } = usePractices();
 
   return (
@@ -27,3 +27,5 @@ export const PracticesPage = () => {
     </StateRenderer>
   );
 };
+
+export default PracticesPage;

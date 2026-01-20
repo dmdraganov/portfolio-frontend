@@ -2,7 +2,7 @@
 import { useLabs } from '../hooks/useLabs';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
 
-export const LabsPage = () => {
+const LabsPage = () => {
   const { labs, loading, error } = useLabs();
 
   return (
@@ -27,3 +27,5 @@ export const LabsPage = () => {
     </StateRenderer>
   );
 };
+
+export default LabsPage;

@@ -1,7 +1,7 @@
 import { useCourseworks } from '../hooks/useCourseworks';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
 
-export const CourseworksPage = () => {
+const CourseworksPage = () => {
   const { courseworks, loading, error } = useCourseworks();
 
   return (
@@ -26,3 +26,5 @@ export const CourseworksPage = () => {
     </StateRenderer>
   );
 };
+
+export default CourseworksPage;

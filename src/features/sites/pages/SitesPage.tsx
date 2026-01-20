@@ -3,7 +3,7 @@ import { useSites } from '../hooks/useSites';
 import { Link } from 'react-router-dom';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
 
-export const SitesPage = () => {
+const SitesPage = () => {
   const { sites, loading, error } = useSites();
 
   return (
@@ -28,3 +28,5 @@ export const SitesPage = () => {
     </StateRenderer>
   );
 };
+
+export default SitesPage;

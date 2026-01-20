@@ -2,7 +2,7 @@
 import { usePracticalPages } from '../hooks/usePracticalPages';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
 
-export const PracticalPagesPage = () => {
+const PracticalPagesPage = () => {
   const { practicalPages, loading, error } = usePracticalPages();
   return (
     <StateRenderer
@@ -26,3 +26,5 @@ export const PracticalPagesPage = () => {
     </StateRenderer>
   );
 };
+
+export default PracticalPagesPage;

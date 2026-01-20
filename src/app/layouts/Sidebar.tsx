@@ -16,7 +16,7 @@ type SidebarProps = {
   toggle: () => void;
 };
 
-export const Sidebar = ({ isOpen, toggle }: SidebarProps) => {
+const Sidebar = ({ isOpen, toggle }: SidebarProps) => {
   const { config, loading, error } = useConfig();
 
   return (
@@ -63,3 +63,5 @@ export const Sidebar = ({ isOpen, toggle }: SidebarProps) => {
     </aside>
   );
 };
+
+export default Sidebar;

@@ -2,7 +2,7 @@
 import { useEssays } from '../hooks/useEssays';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
 
-export const EssaysPage = () => {
+const EssaysPage = () => {
   const { essays, loading, error } = useEssays();
 
   return (
@@ -27,3 +27,5 @@ export const EssaysPage = () => {
     </StateRenderer>
   );
 };
+
+export default EssaysPage;

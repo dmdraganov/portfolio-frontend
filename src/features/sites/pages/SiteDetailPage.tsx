@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useSite } from '../hooks/useSites';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
 
-export const SiteDetailPage = () => {
+const SiteDetailPage = () => {
   const { name } = useParams<{ name: string }>();
   const { site, loading, error } = useSite(name || '');
 
@@ -94,3 +94,5 @@ export const SiteDetailPage = () => {
     </StateRenderer>
   );
 };
+
+export default SiteDetailPage;
