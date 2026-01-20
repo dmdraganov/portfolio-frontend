@@ -11,25 +11,14 @@ export const PracticalPagesPage = () => {
       data={practicalPages}
       notFoundMessage='Практические страницы не найдены'
     >
-      <section>
+      <section className='container mx-auto'>
         <h1 className='text-3xl font-bold mb-4'>Практические страницы</h1>
         <ul>
-          {practicalPages.map((lab) => (
-            <li key={lab.labNumber}>
-              К лабораторной работе №{lab.labNumber}
-              <ul>
-                {lab.pages.map((page) => (
-                  <li key={page.name}>
-                    <a
-                      href={page.url}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      {page.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          {practicalPages.map((page) => (
+            <li key={page.labNumber}>
+              <a href={page.url} target='_blank' rel='noopener noreferrer'>
+                К лабораторной работе №{page.labNumber}
+              </a>
             </li>
           ))}
         </ul>

@@ -12,7 +12,7 @@ export const PracticesPage = () => {
       data={practices}
       notFoundMessage='Практические работы не найдены'
     >
-      <section>
+      <section className='container mx-auto'>
         <h1 className='text-3xl font-bold mb-4'>Практические работы</h1>
         <ul>
           {practices.map((work) => (

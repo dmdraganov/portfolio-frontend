@@ -12,7 +12,7 @@ export const EssaysPage = () => {
       data={essays}
       notFoundMessage='Рефераты не найдены'
     >
-      <section>
+      <section className='container mx-auto'>
         <h1 className='text-3xl font-bold mb-4'>Рефераты</h1>
         <ul>
           {essays.map((essay) => (

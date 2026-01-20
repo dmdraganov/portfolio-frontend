@@ -12,7 +12,7 @@ export const LabsPage = () => {
       data={labs}
       notFoundMessage='Лабораторные работы не найдены'
     >
-      <section>
+      <section className='container mx-auto'>
         <h1 className='text-3xl font-bold mb-4'>Лабораторные работы</h1>
         <ul>
           {labs.map((work) => (

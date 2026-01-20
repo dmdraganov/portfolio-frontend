@@ -9,10 +9,7 @@ export type Work = {
 // 7.2 Практические страницы
 export type PracticalPage = {
   labNumber: number;
-  pages: {
-    name: string;
-    url: string;
-  }[];
+  url: string;
 };
 
 

@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+import { useConfig } from '@/shared/hooks/useConfig';
+import { StateRenderer } from '../../shared/ui/StateRenderer';
 
 const links = [
   { to: '/practices', label: 'Практические' },
@@ -15,17 +17,33 @@ type SidebarProps = {
 };
 
 export const Sidebar = ({ isOpen, toggle }: SidebarProps) => {
+  const { config, loading, error } = useConfig();
+
   return (
     <aside
-      className={`bg-card text-foreground h-screen fixed top-0 left-0 flex flex-col justify-between p-2 transition-all duration-300 ${
+      className={`bg-card text-foreground h-screen fixed top-0 left-0 flex flex-col p-2 transition-all duration-300 ${
         isOpen ? 'w-64' : 'w-16'
       }`}
     >
-      <div className={isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}>
-        <div className='flex items-center justify-start h-16 px-4'>
-          <h1 className='text-xl font-bold text-nowrap'>Драганов Д.А.</h1>
+      <div>
+        <div
+          className={`flex items-center h-16 px-4 ${
+            isOpen ? 'justify-between' : 'justify-center'
+          }`}
+        >
+          <h1 className={`text-xl font-bold text-nowrap ${!isOpen && 'hidden'}`}>
+            <StateRenderer data={config} error={error} loading={loading}>
+              {config?.label}
+            </StateRenderer>
+          </h1>
+          <button
+            onClick={toggle}
+            className='p-2 bg-gray-700 rounded-full hover:bg-gray-600'
+          >
+            {isOpen ? '<' : '>'}
+          </button>
         </div>
-        <nav className='flex flex-col space-y-2'>
+        <nav className={`flex flex-col space-y-2 ${!isOpen && 'hidden'}`}>
           {links.map((link) => (
             <NavLink
               key={link.to}
@@ -41,12 +59,6 @@ export const Sidebar = ({ isOpen, toggle }: SidebarProps) => {
           ))}
         </nav>
       </div>
-      <button
-        onClick={toggle}
-        className='p-2 self-end m-2 bg-gray-700 rounded-full hover:bg-gray-600'
-      >
-        {isOpen ? '<' : '>'}
-      </button>{' '}
     </aside>
   );
 };

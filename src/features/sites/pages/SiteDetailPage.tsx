@@ -15,7 +15,7 @@ export const SiteDetailPage = () => {
       notFoundMessage='Сайт не найден'
     >
       {site && (
-        <section>
+        <section className='container mx-auto'>
           <Link
             to='/sites'
             className='mb-4 inline-block text-gray-400 hover:text-white'
