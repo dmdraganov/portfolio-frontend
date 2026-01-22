@@ -3,6 +3,7 @@
     "name": "Portfolio Website",
     "repositoryUrl": "https://github.com/user/portfolio",
     "figmaUrl": "https://www.figma.com/file/...",
+    "referenceColumns": ["название сайта 1", "название сайта 2"],
     "pages": [
       {
         "name": "Home Page",
@@ -15,7 +16,10 @@
       {
         "name": "About Page",
         "url": "/portfolio/about.html",
-        "references": ["/images/portfolio/about-ref1.png"]
+        "references": [
+          "/images/portfolio/about-ref1.png",
+          "/images/portfolio/about-ref2.png"
+        ]
       }
     ]
   }

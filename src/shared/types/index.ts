@@ -23,6 +23,7 @@ export type Site = {
   name: string;
   repositoryUrl: string;
   figmaUrl: string;
+  referenceColumns: string[];
   pages: SitePage[];
 };
 

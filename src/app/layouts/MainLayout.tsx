@@ -10,11 +10,11 @@ const MainLayout = () => {
   };
 
   return (
-    <div className='bg-background text-foreground min-h-screen'>
+    <div className='bg-background font-inter text-foreground min-h-screen'>
       <Sidebar isOpen={isSidebarOpen} toggle={toggleSidebar} />
       <div
         className={`relative transition-all duration-300 ${
-          isSidebarOpen ? 'ml-64' : 'ml-16'
+          isSidebarOpen ? 'ml-64' : 'ml-18'
         }`}
       >
         <main className='p-4'>

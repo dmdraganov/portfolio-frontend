@@ -61,7 +61,11 @@ const SiteDetailPage = () => {
             <thead>
               <tr>
                 <th className='border-b p-4'>Cтраницы сайта</th>
-                <th className='border-b p-4'>Референсы</th>
+                {site.referenceColumns.map((columnName) => (
+                  <th key={columnName} className='border-b p-4'>
+                    {columnName}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
@@ -77,18 +81,17 @@ const SiteDetailPage = () => {
                       {page.name}
                     </a>
                   </td>
-                  <td className='border-b p-4'>
-                    <div className='flex flex-wrap gap-4'>
-                      {page.references.map((ref) => (
+                  {site.referenceColumns.map((_, colIndex) => (
+                    <td key={colIndex} className='border-b p-4 align-top'>
+                      {page.references[colIndex] && (
                         <img
-                          key={ref}
-                          src={ref}
-                          alt={`Референс для ${page.name}`}
+                          src={page.references[colIndex]}
+                          alt={`Reference for ${page.name} column ${colIndex + 1}`}
                           className='w-48 h-auto object-cover rounded-md'
                         />
-                      ))}
-                    </div>
-                  </td>
+                      )}
+                    </td>
+                  ))}
                 </tr>
               ))}
             </tbody>

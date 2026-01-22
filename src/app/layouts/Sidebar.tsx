@@ -30,7 +30,7 @@ const Sidebar = ({ isOpen, toggle }: SidebarProps) => {
   return (
     <aside
       className={`bg-background-secondary text-foreground h-screen 
-        fixed top-0 left-0 flex flex-col gap-6 p-4 transition-all duration-300
+        fixed top-0 left-0 flex flex-col gap-8 p-4 transition-all duration-300
         border-r border-foreground/25 z-1 ${isOpen ? 'w-64' : 'w-fit'}`}
     >
       <div
@@ -45,7 +45,7 @@ const Sidebar = ({ isOpen, toggle }: SidebarProps) => {
         </span>
         <button
           onClick={toggle}
-          className='p-2 bg-background-secondary rounded-full hover:bg-background hover:cursor-pointer'
+          className='p-2 bg-background-secondary rounded-sm hover:bg-secondary hover:cursor-pointer'
         >
           <SidebarIcon className='h-6 w-6' />
         </button>
@@ -56,11 +56,11 @@ const Sidebar = ({ isOpen, toggle }: SidebarProps) => {
             key={link.to}
             to={link.to}
             className={({ isActive }) =>
-              `flex w-full items-center p-2 rounded-sm hover:bg-secondary ${isActive ? 'bg-primary' : ''}`
+              `flex w-full items-center gap-4 p-2 rounded-sm hover:bg-secondary ${isActive ? 'bg-primary' : ''}`
             }
           >
             <link.icon className='h-6 w-6' />
-            <span className={`ml-4 whitespace-nowrap ${!isOpen && 'hidden'}`}>
+            <span className={`whitespace-nowrap ${!isOpen && 'hidden'}`}>
               {link.label}
             </span>
           </NavLink>

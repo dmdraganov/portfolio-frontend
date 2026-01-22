@@ -40,6 +40,7 @@
   "name": string, // Добавлено для идентификации
   "repositoryUrl": string,
   "figmaUrl": string,
+  "referenceColumns": string[], // названия колонок
   "pages": [
     {
       "name": string,
