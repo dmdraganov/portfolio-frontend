@@ -7,23 +7,23 @@ const LabsPage = () => {
   const { labs, loading, error } = useLabs();
 
   return (
-    <StateRenderer
-      loading={loading}
-      error={error}
-      data={labs}
-      notFoundMessage='Лабораторные работы не найдены'
-    >
-      <section className='container mx-auto'>
+    <section className='container mx-auto'>
         <h1 className='text-5xl font-bold mb-4'>Лабораторные работы</h1>
-        <div className='flex flex-col gap-4'>
-          {labs.map((work) => (
-            <LinkButton key={work.number} href={work.reportUrl}>
-              Лабораторная работа №{work.number}
-            </LinkButton>
-          ))}
-        </div>
+        <StateRenderer
+          loading={loading}
+          error={error}
+          data={labs}
+          notFoundMessage='Лабораторные работы не найдены'
+        >
+          <div className='flex flex-col gap-4'>
+            {labs.map((work) => (
+              <LinkButton key={work.number} href={work.reportUrl}>
+                Лабораторная работа №{work.number}
+              </LinkButton>
+            ))}
+          </div>
+        </StateRenderer>
       </section>
-    </StateRenderer>
   );
 };
 

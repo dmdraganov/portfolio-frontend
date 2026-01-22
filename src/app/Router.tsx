@@ -53,6 +53,21 @@ const router = createBrowserRouter([
         path: '/essays',
         element: <EssaysPage />,
       },
+      {
+        path: '/drafts',
+        lazy: async () => {
+          const module = await import('../features/drafts/pages/DraftsPage');
+          return { Component: module.default };
+        },
+      },
+      {
+        path: '/compensatory-works',
+        lazy: async () => {
+          const module =
+            await import('../features/compensatory-works/pages/CompensatoryWorksPage');
+          return { Component: module.default };
+        },
+      },
     ],
   },
 ]);

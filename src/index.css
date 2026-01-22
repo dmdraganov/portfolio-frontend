@@ -9,10 +9,16 @@
   --color-background: #0f0c1a;
   --color-background-secondary: #18122b;
   --color-foreground: #f1f0ff;
-  --color-muted-foreground: #9ca3af;
+  --color-foreground-muted: #9ca3af;
   --color-primary: #8b5cf6;
   --color-secondary: #4a3f85;
   --color-accent: #22d3ee;
-
+  --text-2\.5xl: 1.75rem;
   --font-inter: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background;
+  }
 }

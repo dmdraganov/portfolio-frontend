@@ -21,7 +21,7 @@ export const StateRenderer = <T,>({
 }: StateRendererProps<T>) => {
   if (loading) {
     return (
-      <p className='text-center text-muted-foreground'>{loadingMessage}</p>
+      <p className='text-center text-foreground-muted'>{loadingMessage}</p>
     );
   }
 
@@ -36,9 +36,7 @@ export const StateRenderer = <T,>({
   const dataExists = Array.isArray(data) ? data.length > 0 : data;
 
   if (!dataExists) {
-    return (
-      <p className='text-center text-muted-foreground'>{notFoundMessage}</p>
-    );
+    return <p className='text-foreground-muted'>{notFoundMessage}</p>;
   }
 
   return <>{children}</>;

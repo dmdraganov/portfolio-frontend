@@ -19,6 +19,8 @@ public/
     sites.json
     courseworks.json
     essays.json
+    drafts.json
+    compensatory-works.json
 
 src/
   app/
@@ -30,6 +32,8 @@ src/
     sites/
     courseworks/
     essays/
+    drafts/
+    compensatory-works/
   shared/
     ui/
     hooks/
@@ -47,27 +51,12 @@ src/
     context/
     services/
   features/
-    works/
+    feature/
       components/
       hooks/
       utils/
       types/
-    practical-pages/
-      components/
-      hooks/
-      utils/
-      types/
-    sites/
-      components/
-      hooks/
-      utils/
-      types/
-    courseworks/
-      components/
-      hooks/
-      utils/
-      types/
-    essays/
+    feature/
       components/
       hooks/
       utils/

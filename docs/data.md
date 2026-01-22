@@ -16,6 +16,7 @@
 - sites.json — сайты
 - courseworks.json — курсовые работы
 - essays.json — рефераты
+- compensatory-works.json — отработки
 
 ## Data Models
 
@@ -68,4 +69,12 @@
 
 {
   "label": string
+}
+
+### CompensatoryWork
+
+{
+  "number": number,
+  "text": string,
+  "codeUrl": string
 }

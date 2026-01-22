@@ -10,10 +10,10 @@ const MainLayout = () => {
   };
 
   return (
-    <div className='bg-background font-inter text-foreground min-h-screen'>
+    <div className='font-inter text-foreground min-h-dvh'>
       <Sidebar isOpen={isSidebarOpen} toggle={toggleSidebar} />
       <div
-        className={`relative transition-all duration-300 ${
+        className={`relative transition-all duration-200 ${
           isSidebarOpen ? 'ml-64' : 'ml-18'
         }`}
       >

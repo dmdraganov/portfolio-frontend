@@ -7,23 +7,23 @@ const PracticesPage = () => {
   const { practices, loading, error } = usePractices();
 
   return (
-    <StateRenderer
-      loading={loading}
-      error={error}
-      data={practices}
-      notFoundMessage='Практические работы не найдены'
-    >
-      <section className='container mx-auto'>
+    <section className='container mx-auto'>
         <h1 className='text-5xl font-bold mb-4'>Практические работы</h1>
-        <div className='flex flex-col gap-4'>
-          {practices.map((work) => (
-            <LinkButton key={work.number} href={work.reportUrl}>
-              Практическая работа №{work.number}
-            </LinkButton>
-          ))}
-        </div>
+        <StateRenderer
+          loading={loading}
+          error={error}
+          data={practices}
+          notFoundMessage='Практические работы не найдены'
+        >
+          <div className='flex flex-col gap-4'>
+            {practices.map((work) => (
+              <LinkButton key={work.number} href={work.reportUrl}>
+                Практическая работа №{work.number}
+              </LinkButton>
+            ))}
+          </div>
+        </StateRenderer>
       </section>
-    </StateRenderer>
   );
 };
 

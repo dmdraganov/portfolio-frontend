@@ -7,7 +7,7 @@
     "pages": [
       {
         "name": "Home Page",
-        "url": "/portfolio/index.html",
+        "url": "/sites/portfolio/index.html",
         "references": [
           "/images/portfolio/home-ref1.png",
           "/images/portfolio/home-ref2.png"
@@ -15,7 +15,7 @@
       },
       {
         "name": "About Page",
-        "url": "/portfolio/about.html",
+        "url": "/sites/portfolio/about.html",
         "references": [
           "/images/portfolio/about-ref1.png",
           "/images/portfolio/about-ref2.png"

@@ -7,26 +7,26 @@ const SitesPage = () => {
   const { sites, loading, error } = useSites();
 
   return (
-    <StateRenderer
-      loading={loading}
-      error={error}
-      data={sites}
-      notFoundMessage='Сайты не найдены'
-    >
-      <section className='container mx-auto'>
+    <section className='container mx-auto'>
         <h1 className='text-5xl font-bold mb-4'>Сайты</h1>
-        <div className='flex flex-col gap-4'>
-          {sites.map((site) => (
-            <LinkButton
-              key={site.name}
-              to={`/sites/${encodeURIComponent(site.name)}`}
-            >
-              {site.name}
-            </LinkButton>
-          ))}
-        </div>
+        <StateRenderer
+          loading={loading}
+          error={error}
+          data={sites}
+          notFoundMessage='Сайты не найдены'
+        >
+          <div className='flex flex-col gap-4'>
+            {sites.map((site) => (
+              <LinkButton
+                key={site.name}
+                to={`/sites/${encodeURIComponent(site.name)}`}
+              >
+                {site.name}
+              </LinkButton>
+            ))}
+          </div>
+        </StateRenderer>
       </section>
-    </StateRenderer>
   );
 };
 

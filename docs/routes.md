@@ -7,6 +7,8 @@
 - /sites — Сайты
 - /courseworks — Курсовые работы
 - /essays — Рефераты
+- /drafts — Наработки
+- /compensatory-works — Отработки
 
 ## Navigation rules
 - Используется React Router DOM

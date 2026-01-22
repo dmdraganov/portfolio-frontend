@@ -10,45 +10,45 @@ type RouterLinkButtonProps = LinkProps & {
   href?: never;
 };
 
-type LinkButtonProps = (AnchorLinkButtonProps | RouterLinkButtonProps) & {
-  children: React.ReactNode;
-  className?: string;
-};
+type LinkButtonProps = AnchorLinkButtonProps | RouterLinkButtonProps;
 
-const LinkButton = forwardRef<
-  HTMLAnchorElement | HTMLAnchorElement,
-  LinkButtonProps
->(({ className, children, ...props }, ref) => {
-  const styles = `p-4 border rounded-lg block hover:bg-primary ${className || ''}`;
+function isRouterProps(props: LinkButtonProps): props is RouterLinkButtonProps {
+  return 'to' in props;
+}
 
-  if ('to' in props && props.to !== undefined) {
-    const { to, ...rest } = props as RouterLinkButtonProps;
+const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
+  ({ children, ...props }, ref) => {
+    const styles =
+      'p-4 border border-secondary rounded-lg block hover:border-primary hover:bg-background-secondary transition-colors text-center';
+    const anchorRef = ref as React.Ref<HTMLAnchorElement>;
+
+    if (isRouterProps(props)) {
+      const { to, ...rest } = props;
+
+      return (
+        <Link to={to} {...rest} ref={anchorRef} className={styles}>
+          {children}
+        </Link>
+      );
+    }
+
+    const { href, ...rest } = props;
+
     return (
-      <Link
-        to={to}
-        className={styles}
+      <a
+        href={href}
         {...rest}
-        ref={ref as React.Ref<HTMLAnchorElement>}
+        ref={anchorRef}
+        className={styles}
+        target='_blank'
+        rel='noopener noreferrer'
       >
         {children}
-      </Link>
+      </a>
     );
   }
+);
 
-  const { href, ...rest } = props as AnchorLinkButtonProps;
-
-  return (
-    <a
-      href={href}
-      target='_blank'
-      rel='noopener noreferrer'
-      className={styles}
-      {...rest}
-      ref={ref as React.Ref<HTMLAnchorElement>}
-    >
-      {children}
-    </a>
-  );
-});
+LinkButton.displayName = 'LinkButton';
 
 export default LinkButton;

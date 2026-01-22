@@ -38,3 +38,16 @@ export type Essay = {
   number: number;
   pdfUrl: string;
 };
+
+// Наработки
+export type Draft = {
+  title: string;
+  url: string;
+};
+
+// Отработки
+export type CompensatoryWork = {
+  number: number;
+  text: string;
+  codeUrl: string;
+};

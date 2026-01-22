@@ -9,6 +9,8 @@ import PracticalPagesIcon from '@/assets/icons/file-code.svg?react';
 import SitesIcon from '@/assets/icons/globe.svg?react';
 import CourseworksIcon from '@/assets/icons/graduation-cap.svg?react';
 import EssaysIcon from '@/assets/icons/file-text.svg?react';
+import DraftsIcon from '@/assets/icons/lightbulb.svg?react';
+import CompensatoryWorksIcon from '@/assets/icons/check-circle.svg?react';
 
 const links = [
   { to: '/practices', label: 'Практические', icon: PracticesIcon },
@@ -17,6 +19,12 @@ const links = [
   { to: '/sites', label: 'Сайты', icon: SitesIcon },
   { to: '/courseworks', label: 'Курсовые', icon: CourseworksIcon },
   { to: '/essays', label: 'Рефераты', icon: EssaysIcon },
+  { to: '/drafts', label: 'Наработки', icon: DraftsIcon },
+  {
+    to: '/compensatory-works',
+    label: 'Отработки',
+    icon: CompensatoryWorksIcon,
+  },
 ];
 
 type SidebarProps = {
@@ -46,6 +54,9 @@ const Sidebar = ({ isOpen, toggle }: SidebarProps) => {
         <button
           onClick={toggle}
           className='p-2 bg-background-secondary rounded-sm hover:bg-secondary hover:cursor-pointer'
+          title={
+            isOpen ? 'Свернуть боковую панель' : 'Развернуть боковую панель'
+          }
         >
           <SidebarIcon className='h-6 w-6' />
         </button>
@@ -55,8 +66,9 @@ const Sidebar = ({ isOpen, toggle }: SidebarProps) => {
           <NavLink
             key={link.to}
             to={link.to}
+            title={!isOpen ? link.label : undefined}
             className={({ isActive }) =>
-              `flex w-full items-center gap-4 p-2 rounded-sm hover:bg-secondary ${isActive ? 'bg-primary' : ''}`
+              `flex w-full items-center gap-4 p-2 rounded-sm ${isActive ? 'bg-primary' : 'hover:bg-secondary'}`
             }
           >
             <link.icon className='h-6 w-6' />
