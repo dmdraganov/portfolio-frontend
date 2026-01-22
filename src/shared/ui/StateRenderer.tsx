@@ -20,12 +20,14 @@ export const StateRenderer = <T,>({
   notFoundMessage = 'Данные не найдены',
 }: StateRendererProps<T>) => {
   if (loading) {
-    return <p>{loadingMessage}</p>;
+    return (
+      <p className='text-center text-muted-foreground'>{loadingMessage}</p>
+    );
   }
 
   if (error) {
     return (
-      <p>
+      <p className='text-center text-red-500'>
         {errorMessage}: {error.message}
       </p>
     );
@@ -34,7 +36,9 @@ export const StateRenderer = <T,>({
   const dataExists = Array.isArray(data) ? data.length > 0 : data;
 
   if (!dataExists) {
-    return <p>{notFoundMessage}</p>;
+    return (
+      <p className='text-center text-muted-foreground'>{notFoundMessage}</p>
+    );
   }
 
   return <>{children}</>;

@@ -12,7 +12,6 @@ export type PracticalPage = {
   url: string;
 };
 
-
 // 7.3 Сайты
 export type SitePage = {
   name: string;

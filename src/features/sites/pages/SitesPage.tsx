@@ -1,7 +1,7 @@
 // src/features/sites/pages/SitesPage.tsx
 import { useSites } from '../hooks/useSites';
-import { Link } from 'react-router-dom';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
+import LinkButton from '@/shared/ui/LinkButton';
 
 const SitesPage = () => {
   const { sites, loading, error } = useSites();
@@ -14,16 +14,17 @@ const SitesPage = () => {
       notFoundMessage='Сайты не найдены'
     >
       <section className='container mx-auto'>
-        <h1 className='text-3xl font-bold mb-4'>Сайты</h1>
-        <ul>
+        <h1 className='text-5xl font-bold mb-4'>Сайты</h1>
+        <div className='flex flex-col gap-4'>
           {sites.map((site) => (
-            <li key={site.name}>
-              <Link to={`/sites/${encodeURIComponent(site.name)}`}>
-                {site.name}
-              </Link>
-            </li>
+            <LinkButton
+              key={site.name}
+              to={`/sites/${encodeURIComponent(site.name)}`}
+            >
+              {site.name}
+            </LinkButton>
           ))}
-        </ul>
+        </div>
       </section>
     </StateRenderer>
   );

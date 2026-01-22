@@ -1,5 +1,6 @@
 import { useCourseworks } from '../hooks/useCourseworks';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
+import LinkButton from '@/shared/ui/LinkButton';
 
 const CourseworksPage = () => {
   const { courseworks, loading, error } = useCourseworks();
@@ -12,16 +13,14 @@ const CourseworksPage = () => {
       notFoundMessage='Курсовые работы не найдены'
     >
       <section className='container mx-auto'>
-        <h1 className='text-3xl font-bold mb-4'>Курсовые работы</h1>
-        <ul>
+        <h1 className='text-5xl font-bold mb-4'>Курсовые работы</h1>
+        <div className='flex flex-col gap-4'>
           {courseworks.map((work) => (
-            <li key={work.title}>
-              <a href={work.pdfUrl} target='_blank' rel='noopener noreferrer'>
-                {work.title}
-              </a>
-            </li>
+            <LinkButton key={work.title} href={work.pdfUrl}>
+              {work.title}
+            </LinkButton>
           ))}
-        </ul>
+        </div>
       </section>
     </StateRenderer>
   );

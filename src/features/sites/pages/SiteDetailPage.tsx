@@ -36,23 +36,27 @@ const SiteDetailPage = () => {
               />
             </svg>
           </Link>
-          <h1 className='text-3xl font-bold mb-4'>{site.name}</h1>
-          <p>
+          <h1 className='text-5xl font-bold mb-4'>{site.name}</h1>
+          <div className='flex gap-4 mb-4'>
             <a
               href={site.repositoryUrl}
               target='_blank'
               rel='noopener noreferrer'
+              className='text-primary hover:underline'
             >
               Репозиторий
             </a>
-          </p>
-          <p>
-            <a href={site.figmaUrl} target='_blank' rel='noopener noreferrer'>
+            <a
+              href={site.figmaUrl}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-primary hover:underline'
+            >
               Макет в Figma
             </a>
-          </p>
+          </div>
 
-          <h2 className='text-2xl font-bold my-4'>Страницы</h2>
+          <h2 className='text-2xl font-semibold my-4'>Страницы</h2>
           <table className='w-full text-left border-collapse'>
             <thead>
               <tr>

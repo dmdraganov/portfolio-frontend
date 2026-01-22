@@ -1,6 +1,7 @@
 // src/features/works/pages/LabsPage.tsx
 import { useLabs } from '../hooks/useLabs';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
+import LinkButton from '@/shared/ui/LinkButton';
 
 const LabsPage = () => {
   const { labs, loading, error } = useLabs();
@@ -13,16 +14,14 @@ const LabsPage = () => {
       notFoundMessage='Лабораторные работы не найдены'
     >
       <section className='container mx-auto'>
-        <h1 className='text-3xl font-bold mb-4'>Лабораторные работы</h1>
-        <ul>
+        <h1 className='text-5xl font-bold mb-4'>Лабораторные работы</h1>
+        <div className='flex flex-col gap-4'>
           {labs.map((work) => (
-            <li key={work.number}>
-              <a href={work.reportUrl} target='_blank' rel='noopener noreferrer'>
-                Лабораторная работа №{work.number}
-              </a>
-            </li>
+            <LinkButton key={work.number} href={work.reportUrl}>
+              Лабораторная работа №{work.number}
+            </LinkButton>
           ))}
-        </ul>
+        </div>
       </section>
     </StateRenderer>
   );

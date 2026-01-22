@@ -1,6 +1,7 @@
 // src/features/works/pages/PracticesPage.tsx
 import { usePractices } from '../hooks/usePractices';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
+import LinkButton from '@/shared/ui/LinkButton';
 
 const PracticesPage = () => {
   const { practices, loading, error } = usePractices();
@@ -13,16 +14,14 @@ const PracticesPage = () => {
       notFoundMessage='Практические работы не найдены'
     >
       <section className='container mx-auto'>
-        <h1 className='text-3xl font-bold mb-4'>Практические работы</h1>
-        <ul>
+        <h1 className='text-5xl font-bold mb-4'>Практические работы</h1>
+        <div className='flex flex-col gap-4'>
           {practices.map((work) => (
-            <li key={work.number}>
-              <a href={work.reportUrl} target='_blank' rel='noopener noreferrer'>
-                Практическая работа №{work.number}
-              </a>
-            </li>
+            <LinkButton key={work.number} href={work.reportUrl}>
+              Практическая работа №{work.number}
+            </LinkButton>
           ))}
-        </ul>
+        </div>
       </section>
     </StateRenderer>
   );

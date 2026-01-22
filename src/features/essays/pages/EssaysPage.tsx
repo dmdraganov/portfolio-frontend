@@ -1,6 +1,7 @@
 // src/features/essays/pages/EssaysPage.tsx
 import { useEssays } from '../hooks/useEssays';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
+import LinkButton from '@/shared/ui/LinkButton';
 
 const EssaysPage = () => {
   const { essays, loading, error } = useEssays();
@@ -13,16 +14,14 @@ const EssaysPage = () => {
       notFoundMessage='Рефераты не найдены'
     >
       <section className='container mx-auto'>
-        <h1 className='text-3xl font-bold mb-4'>Рефераты</h1>
-        <ul>
+        <h1 className='text-5xl font-bold mb-4'>Рефераты</h1>
+        <div className='flex flex-col gap-4'>
           {essays.map((essay) => (
-            <li key={essay.number}>
-              <a href={essay.pdfUrl} target='_blank' rel='noopener noreferrer'>
-                Реферат №{essay.number}
-              </a>
-            </li>
+            <LinkButton key={essay.number} href={essay.pdfUrl}>
+              Реферат №{essay.number}
+            </LinkButton>
           ))}
-        </ul>
+        </div>
       </section>
     </StateRenderer>
   );

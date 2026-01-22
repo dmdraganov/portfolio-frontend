@@ -1,6 +1,7 @@
 // src/features/practical-pages/pages/PracticalPagesPage.tsx
 import { usePracticalPages } from '../hooks/usePracticalPages';
 import { StateRenderer } from '@/shared/ui/StateRenderer';
+import LinkButton from '@/shared/ui/LinkButton';
 
 const PracticalPagesPage = () => {
   const { practicalPages, loading, error } = usePracticalPages();
@@ -12,16 +13,14 @@ const PracticalPagesPage = () => {
       notFoundMessage='Практические страницы не найдены'
     >
       <section className='container mx-auto'>
-        <h1 className='text-3xl font-bold mb-4'>Практические страницы</h1>
-        <ul>
+        <h1 className='text-5xl font-bold mb-4'>Практические страницы</h1>
+        <div className='flex flex-col gap-4'>
           {practicalPages.map((page) => (
-            <li key={page.labNumber}>
-              <a href={page.url} target='_blank' rel='noopener noreferrer'>
-                К лабораторной работе №{page.labNumber}
-              </a>
-            </li>
+            <LinkButton key={page.labNumber} href={page.url}>
+              К лабораторной работе №{page.labNumber}
+            </LinkButton>
           ))}
-        </ul>
+        </div>
       </section>
     </StateRenderer>
   );
