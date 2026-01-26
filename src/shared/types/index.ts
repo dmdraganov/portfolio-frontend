@@ -51,3 +51,8 @@ export type CompensatoryWork = {
   text: string;
   codeUrl: string;
 };
+
+// Конфиг
+export type Config = {
+  label: string;
+};

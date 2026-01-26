@@ -1,8 +1,5 @@
 import { useData } from '@/shared/hooks/useData';
-
-type Config = {
-  label: string;
-};
+import { Config } from '@/shared/types';
 
 export const useConfig = () => {
   const { data: config, loading, error } = useData<Config>('/data/config.json');

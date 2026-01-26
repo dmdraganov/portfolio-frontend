@@ -20,14 +20,12 @@ export const StateRenderer = <T,>({
   notFoundMessage = 'Данные не найдены',
 }: StateRendererProps<T>) => {
   if (loading) {
-    return (
-      <p className='text-center text-foreground-muted'>{loadingMessage}</p>
-    );
+    return <p className='text-foreground-muted'>{loadingMessage}</p>;
   }
 
   if (error) {
     return (
-      <p className='text-center text-red-500'>
+      <p className='text-red-500'>
         {errorMessage}: {error.message}
       </p>
     );

@@ -8,22 +8,22 @@ const DraftsPage = () => {
 
   return (
     <section className='container mx-auto'>
-        <h1 className='text-5xl font-bold mb-4'>Наработки</h1>
-        <StateRenderer
-          loading={loading}
-          error={error}
-          data={drafts}
-          notFoundMessage='Наработки не найдены'
-        >
-          <div className='flex flex-col gap-4'>
-            {drafts.map((draft) => (
-              <LinkButton key={draft.title} href={draft.url}>
-                {draft.title}
-              </LinkButton>
-            ))}
-          </div>
-        </StateRenderer>
-      </section>
+      <h1 className='text-5xl font-bold mb-4'>Наработки</h1>
+      <StateRenderer
+        loading={loading}
+        error={error}
+        data={drafts}
+        notFoundMessage='Наработки не найдены'
+      >
+        <div className='flex flex-col gap-4'>
+          {drafts.map((draft) => (
+            <LinkButton key={draft.title} href={draft.url}>
+              {draft.title}
+            </LinkButton>
+          ))}
+        </div>
+      </StateRenderer>
+    </section>
   );
 };
 

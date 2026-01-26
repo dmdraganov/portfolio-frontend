@@ -8,22 +8,22 @@ const EssaysPage = () => {
 
   return (
     <section className='container mx-auto'>
-        <h1 className='text-5xl font-bold mb-4'>Рефераты</h1>
-        <StateRenderer
-          loading={loading}
-          error={error}
-          data={essays}
-          notFoundMessage='Рефераты не найдены'
-        >
-          <div className='flex flex-col gap-4'>
-            {essays.map((essay) => (
-              <LinkButton key={essay.number} href={essay.pdfUrl}>
-                Реферат №{essay.number}
-              </LinkButton>
-            ))}
-          </div>
-        </StateRenderer>
-      </section>
+      <h1 className='text-5xl font-bold mb-4'>Рефераты</h1>
+      <StateRenderer
+        loading={loading}
+        error={error}
+        data={essays}
+        notFoundMessage='Рефераты не найдены'
+      >
+        <div className='flex flex-col gap-4'>
+          {essays.map((essay) => (
+            <LinkButton key={essay.number} href={essay.pdfUrl}>
+              Реферат №{essay.number}
+            </LinkButton>
+          ))}
+        </div>
+      </StateRenderer>
+    </section>
   );
 };
 
