@@ -8,7 +8,7 @@ export const useCode = (url: string) => {
   useEffect(() => {
     const fetchCode = async () => {
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, { cache: 'no-store' });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

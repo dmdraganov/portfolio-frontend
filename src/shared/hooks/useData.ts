@@ -13,7 +13,7 @@ export const useData = <TResult, TJson = unknown>(
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, { cache: 'no-store' });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
