@@ -1,7 +1,8 @@
-import { useData } from '@/shared/hooks/useData';
+// src/shared/hooks/useConfig.ts
+import { useData } from './useData';
 import { Config } from '@/shared/types';
 
 export const useConfig = () => {
-  const { data: config, loading, error } = useData<Config>('/data/config.json');
-  return { config, loading, error };
+  const { data: config, ...rest } = useData<Config>('/data/config.json');
+  return { config, ...rest };
 };

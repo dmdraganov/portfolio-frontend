@@ -1,6 +1,9 @@
-[
-  {
-    "number": 1,
-    "reportUrl": "/reports/practice-1.pdf"
-  }
-]
+{
+  "basePath": "practices",
+  "items": [
+    {
+      "number": 1,
+      "path": "practice-1.pdf"
+    }
+  ]
+}

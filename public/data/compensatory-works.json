@@ -1,7 +1,10 @@
-[
-  {
-    "number": 1,
-    "text": "Сложи массив чисел и выведи результат в alert.",
-    "codeUrl": "/compensatory-works/task1.js"
-  }
-]
+{
+  "basePath": "compensatory-works",
+  "items": [
+    {
+      "number": 1,
+      "text": "Сложи массив чисел и выведи результат в alert.",
+      "path": "task1.js"
+    }
+  ]
+}

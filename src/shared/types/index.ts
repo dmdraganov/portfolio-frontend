@@ -1,5 +1,10 @@
 // src/shared/types/index.ts
 
+export type WorkCollection<T> = {
+  basePath: string;
+  items: T[];
+};
+
 // 7.1 Работы (практические и лабораторные)
 export type Work = {
   number: number;
@@ -55,4 +60,5 @@ export type CompensatoryWork = {
 // Конфиг
 export type Config = {
   label: string;
+  worksRoot: string;
 };

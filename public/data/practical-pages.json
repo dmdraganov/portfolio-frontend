@@ -1,6 +1,9 @@
-[
-  {
-    "labNumber": 1,
-    "url": "/practical-pages/lab1/"
-  }
-]
+{
+  "basePath": "practical-pages",
+  "items": [
+    {
+      "labNumber": 1,
+      "path": "lab1/"
+    }
+  ]
+}

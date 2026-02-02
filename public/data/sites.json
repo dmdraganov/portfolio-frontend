@@ -1,26 +1,29 @@
-[
-  {
-    "name": "Portfolio Website",
-    "repositoryUrl": "https://github.com/user/portfolio",
-    "figmaUrl": "https://www.figma.com/file/...",
-    "referenceColumns": ["название сайта 1", "название сайта 2"],
-    "pages": [
-      {
-        "name": "Home Page",
-        "url": "/sites/portfolio/index.html",
-        "references": [
-          "/images/portfolio/home-ref1.png",
-          "/images/portfolio/home-ref2.png"
-        ]
-      },
-      {
-        "name": "About Page",
-        "url": "/sites/portfolio/about.html",
-        "references": [
-          "/images/portfolio/about-ref1.png",
-          "/images/portfolio/about-ref2.png"
-        ]
-      }
-    ]
-  }
-]
+{
+  "basePath": "sites",
+  "items": [
+    {
+      "name": "Portfolio Website",
+      "repositoryUrl": "https://github.com/user/portfolio",
+      "figmaUrl": "https://www.figma.com/file/...",
+      "referenceColumns": ["название сайта 1", "название сайта 2"],
+      "pages": [
+        {
+          "name": "Home Page",
+          "path": "portfolio/index.html",
+          "references": [
+            "../images/portfolio/home-ref1.png",
+            "../images/portfolio/home-ref2.png"
+          ]
+        },
+        {
+          "name": "About Page",
+          "path": "portfolio/about.html",
+          "references": [
+            "../images/portfolio/about-ref1.png",
+            "../images/portfolio/about-ref2.png"
+          ]
+        }
+      ]
+    }
+  ]
+}

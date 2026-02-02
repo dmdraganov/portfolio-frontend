@@ -1,6 +1,9 @@
-[
-  {
-    "title": "Coursework on Topic A",
-    "pdfUrl": "/courseworks/coursework-a.pdf"
-  }
-]
+{
+  "basePath": "courseworks",
+  "items": [
+    {
+      "title": "Coursework on Topic A",
+      "path": "coursework-a.pdf"
+    }
+  ]
+}
