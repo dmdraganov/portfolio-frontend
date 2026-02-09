@@ -43,7 +43,7 @@ const SiteDetailPage = () => {
         >
           {site && (
             <>
-              <div className='flex gap-4 mb-4'>
+              <div className='flex gap-6 mb-4'>
                 <a
                   href={site.repositoryUrl}
                   target='_blank'
@@ -58,7 +58,25 @@ const SiteDetailPage = () => {
                   rel='noopener noreferrer'
                   className='text-primary hover:underline'
                 >
-                  Макет в Figma
+                  Макет Figma
+                </a>
+                {site.ghPagesUrl && (
+                  <a
+                    href={site.figmaUrl}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-primary hover:underline'
+                  >
+                    GitHub Pages
+                  </a>
+                )}
+                <a
+                  href={site.url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='text-primary hover:underline'
+                >
+                  Сайт
                 </a>
               </div>
               <h2 className='text-2.5xl font-semibold my-4'>Страницы</h2>

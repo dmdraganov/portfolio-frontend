@@ -28,6 +28,8 @@ export type Site = {
   name: string;
   repositoryUrl: string;
   figmaUrl: string;
+  ghPagesUrl?: string;
+  url: string;
   referenceColumns: string[];
   pages: SitePage[];
 };

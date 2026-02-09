@@ -5,7 +5,10 @@ import { getWorkUrl } from '@/shared/utils/url';
 import { useMemo } from 'react';
 
 type JsonSitePage = Omit<SitePage, 'url'> & { path: string };
-type JsonSite = Omit<Site, 'pages'> & { pages: JsonSitePage[] };
+type JsonSite = Omit<Site, 'pages' | 'url'> & {
+  path: string;
+  pages: JsonSitePage[];
+};
 
 export const useSites = () => {
   const { config, loading: configLoading, error: configError } = useConfig();
@@ -21,6 +24,7 @@ export const useSites = () => {
     }
     return worksCollection.items.map((site) => ({
       ...site,
+      url: getWorkUrl(config.worksRoot, worksCollection.basePath, site.path),
       pages: site.pages.map((page) => ({
         ...page,
         url: getWorkUrl(config.worksRoot, worksCollection.basePath, page.path),
